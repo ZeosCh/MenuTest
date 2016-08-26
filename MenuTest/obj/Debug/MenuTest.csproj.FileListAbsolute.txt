@@ -1,0 +1,1 @@
+D:\Visual Studio Tests\MenuTest\MenuTest\obj\Debug\MenuTest.csprojResolveAssemblyReference.cache
