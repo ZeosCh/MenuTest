@@ -1,3 +1,4 @@
+using System;
 using SupportActionBarDrawerToggle = Android.Support.V7.App.ActionBarDrawerToggle;
 using Android.Support.V7.App;
 using Android.Support.V4.Widget;
@@ -14,9 +15,9 @@ namespace MenuTest
         public MyActionBarDrawerToggle(AppCompatActivity host, DrawerLayout drawerLayout, int openedResource, int closedResource)
             :base(host, drawerLayout,openedResource,closedResource)
         {
-            mHostActivity = host;
-			mOpenedResource = openDrawerDesc;
-			mClosedResource = closeDrawerDesc;
+            mActivity = host;
+			mOpenedResource = openedResource;
+			mClosedResource = closedResource;
         }
 
 
@@ -26,7 +27,7 @@ namespace MenuTest
             if (drawerType == 0)
             {
                 base.OnDrawerOpened(drawerView);
-                mHostActivity.SupportActionBar.SetTitle(mOpenedResource);
+                mActivity.SupportActionBar.SetTitle(mOpenedResource);
             }
         }
 
@@ -36,7 +37,7 @@ namespace MenuTest
             if (drawerType == 0)
             {
                 base.OnDrawerClosed(drawerView);
-                mHostActivity.SupportActionBar.SetTitle(mClosedResource);
+                mActivity.SupportActionBar.SetTitle(mClosedResource);
             }
         }
 

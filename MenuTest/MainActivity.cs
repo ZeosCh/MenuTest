@@ -1,8 +1,15 @@
-﻿using Android.App;
+﻿using System;
+
+using Android.App;
+using Android.Content;
+using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+
 using System.Collections.Generic;
+using MenuTest.Resources.Fragments;
+using Android.Content.Res;
 using Android.Support.V4.Widget;
 using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.V7.App;
@@ -11,7 +18,7 @@ using SupportFragment = Android.Support.V4.App.Fragment;
 namespace MenuTest
 {
     [Activity(Label = "MenuTest", MainLauncher = true, Icon = "@drawable/icon",Theme ="@style/MyTheme", ConfigurationChanges= Android.Content.PM.ConfigChanges.ScreenSize|Android.Content.PM.ConfigChanges.Orientation)]
-    public class MainActivity : ActionBarActivity
+    public class MainActivity : AppCompatActivity
     {
         private SupportToolbar mToolbar;
         private MyActionBarDrawerToggle mDrawerToggle;
@@ -42,7 +49,7 @@ namespace MenuTest
             mToolbar = FindViewById<SupportToolbar>(Resource.Id.toolbar);
             mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             mLeftDrawer = FindViewById<ListView>(Resource.Id.left_drawer);
-            mRightDrawer = FindViewById<ListView>(Resource.Id.rightdrawer);
+            mRightDrawer = FindViewById<ListView>(Resource.Id.right_drawer);
 
             mFragment1 = new Fragment1();
             mFragment2 = new Fragment2();
@@ -139,9 +146,9 @@ namespace MenuTest
 
             switch (item.ItemId)
             {
-                case Android.Rsource.Id.Home:
+                case Android.Resource.Id.Home:
                     mDrawerLayout.CloseDrawer(mRightDrawer);
-                    mDrawerToggle.onOptionsItemSelected(item);
+                    mDrawerToggle.OnOptionsItemSelected(item);
                     return true;
                 case Resource.Id.info:
                     if (mDrawerLayout.IsDrawerOpen(mRightDrawer))
@@ -154,15 +161,7 @@ namespace MenuTest
                         mDrawerLayout.OpenDrawer(mRightDrawer);
                     }
                     return true;
-                case Resource.Id.action_fragment1:
-                        ShowFragment(mFragment1);
-                        return true;
-                case Resource.Id.action_fragment2:
-                        ShowFragment(mFragment2);
-                        return true;
-                case Resource.Id.action_fragment3:
-                        ShowFragment(mFragment3);
-                        return true;
+                
                 case Resource.Id.action_fragment4:
                         ShowFragment(mFragment4);
                         return true;
@@ -177,11 +176,11 @@ namespace MenuTest
         {
             if (mDrawerLayout.IsDrawerOpen((int)GravityFlags.Left))
             {
-                outState.putString("DrawerState", "Opened");
+                outState.PutString("DrawerState", "Opened");
             }
             else
             {
-                outState.putString("DrawerState", "Closed");
+                outState.PutString("DrawerState", "Closed");
             }
             base.OnSaveInstanceState(outState);
         }
@@ -191,10 +190,12 @@ namespace MenuTest
             base.OnRestoreInstanceState(savedInstanceState);
         }
 
-        protected override void ShowFragment(SupportFragment fragment)
+        protected void ShowFragment(SupportFragment fragment)
         {
+            if (fragment.IsVisible)
+            { return; }
             var trans = SupportFragmentManager.BeginTransaction();
-            trans.SetCustomAnimation(Resource.Animation.slide_in, Resource.Animation.slide_out, Resource.Animation.slide_in, Resource.Animation.slide_out);
+            trans.SetCustomAnimations(Resource.Animation.slide_in, Resource.Animation.slide_out, Resource.Animation.slide_in, Resource.Animation.slide_out);
 
             trans.Hide(mCurrentFRagment);
             trans.Show(fragment);

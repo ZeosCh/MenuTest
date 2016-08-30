@@ -101,15 +101,15 @@
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="MyActionBarDrawerToggle.cs" />
-    <Compile Include="Resources\datacenter\Database.cs" />
-    <Compile Include="Resources\Fragments\Fragment1.cs" />
-    <Compile Include="Resources\Fragments\Fragment2.cs" />
-    <Compile Include="Resources\Fragments\Fragment3.cs" />
-    <Compile Include="Resources\Fragments\Fragment4.cs" />
-    <Compile Include="Resources\Fragments\Fragment5.cs" />
-    <Compile Include="Resources\Fragments\Fragment6.cs" />
-    <Compile Include="Resources\ListViewAdapter.cs" />
-    <Compile Include="Resources\model\Station.cs" />
+    <Compile Include="datacenter\Database.cs" />
+    <Compile Include="Fragments\Fragment1.cs" />
+    <Compile Include="Fragments\Fragment2.cs" />
+    <Compile Include="Fragments\Fragment3.cs" />
+    <Compile Include="Fragments\Fragment4.cs" />
+    <Compile Include="Fragments\Fragment5.cs" />
+    <Compile Include="Fragments\Fragment6.cs" />
+    <Compile Include="ListViewAdapter.cs" />
+    <Compile Include="Model\Station.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

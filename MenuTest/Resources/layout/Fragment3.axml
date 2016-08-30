@@ -6,8 +6,8 @@
     android:background="#3366FF">
   <Button
     android:id="@+id/btnFragment4"
-    android:layout_width="wrap_parent"
-    android:layout_height="wrap_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:text="Click to open Fragment 6"
     android:textColor="#E000"
     android:background="#E2E2E2"

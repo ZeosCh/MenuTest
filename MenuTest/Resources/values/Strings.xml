@@ -4,4 +4,10 @@
     <string name="ApplicationName">MenuTest</string>
     <string name="openDrawer">Drawer Opened</string>
     <string name="closeDrawer">Drawer Closed</string>
+    <string name="pageHeader">Search Method</string>
+    <string name="pageHeader2">Search Page</string>    
+    <string name="HomePageText1"></string>
+    <string name="HomePageText2"></string>
+    <string name="HomePageButton1">Search</string>
+    <string name="HomePageButton2">Search Map</string>
 </resources>
